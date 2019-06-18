@@ -1,0 +1,13 @@
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\RevitAPI.dll
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\RevitAPIUI.dll
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csproj.CoreCompileInputs.cache
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csproj.CopyComplete
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\AcCoreMgd.dll
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\AcDbMgd.dll
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\AcMgd.dll
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\ClassLibrary1.FormInput.resources
+C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csproj.GenerateResource.cache
