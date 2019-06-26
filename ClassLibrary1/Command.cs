@@ -23,26 +23,32 @@ namespace PipeExample
         {
             _document = commandData.Application.ActiveUIDocument.Document;
             _uiDocument = commandData.Application.ActiveUIDocument;
-            Element element = SelectionPiepe();
+            try {
+                Element element = SelectionPiepe();
 
-            if (element is Pipe pipeNeedRotate) {
-                Element theSecondElem = SelectPipeIsVector();
-                if (theSecondElem == null) {
-                    return Result.Cancelled;
+                if (element is Pipe pipeNeedRotate) {
+                    Element theSecondElem = SelectPipeIsVector();
+                    if (theSecondElem == null) {
+                        return Result.Cancelled;
+                    }
+                    Pipe pipeAxis = theSecondElem as Pipe;
+                    _pipeNeedRotate = pipeNeedRotate;
+                    _pipeAxis = pipeAxis;
+
+                    FormInput formInput = new FormInput();
+                    formInput.Rotate += RotatePipe;
+                    formInput.ShowDialog();
                 }
-                Pipe pipeAxis = theSecondElem as Pipe;
-                _pipeNeedRotate = pipeNeedRotate;
-                _pipeAxis = pipeAxis;
+                else {
+                    MessageBox.Show("Please! Select one element is Pipe.");
+                }
 
-                FormInput formInput = new FormInput();
-                formInput.Rotate += RotatePipe;
-                formInput.ShowDialog();
+                return Result.Succeeded;
             }
-            else {
-                MessageBox.Show("Please! Select one element is Pipe.");
+            catch (Exception) {
+                MessageBox.Show("Error, Please contact nguyenphuongbka@gmail.com for more details.");
+                return Result.Failed;
             }
-
-            return Result.Succeeded;
         }
 
         private Element SelectPipeIsVector()
@@ -87,17 +93,39 @@ namespace PipeExample
             return line.Origin;
         }
 
-        private void RotatePipe(double angle)
+        private double GetLengthPipe(Pipe pipe)
         {
+            var locationCurve = pipe.Location as LocationCurve;
+            Line line = locationCurve.Curve as Line;
+            return line.Length;
+        }
+
+        private void RotatePipe(double angle, bool isOrigin)
+        {
+            var locationCurve = _pipeNeedRotate.Location as LocationCurve;
+
+            Line nLine;
+
+            double length = GetLengthPipe(_pipeNeedRotate);
             XYZ directionBase = GetDirection(_pipeNeedRotate);
             XYZ directionAxis = GetDirection(_pipeAxis);
+            XYZ origin = GetOrigin(_pipeNeedRotate);
+            XYZ endPoint = origin + directionBase * length;
+
             Vector3d vectorBase = new Vector3d(directionBase.X, directionBase.Y, directionBase.Z);
             Vector3d vectorAxis = new Vector3d(directionAxis.X, directionAxis.Y, directionAxis.Z);
-            Vector3d vectorRotate = vectorBase.RotateBy(angle, vectorAxis);
-            XYZ directionRotate = new XYZ(vectorRotate.X, vectorRotate.Y, vectorRotate.Z);
-            var locationCurve = _pipeNeedRotate.Location as LocationCurve;
-            Line line = locationCurve.Curve as Line;
-            Line nLine = Line.CreateUnbound(GetOrigin(_pipeNeedRotate), directionRotate.Normalize());
+            Vector3d vectorAfterRotate = vectorBase.RotateBy(angle, vectorAxis);
+            XYZ directionAfterRotate = new XYZ(vectorAfterRotate.X, vectorAfterRotate.Y, vectorAfterRotate.Z);
+
+            if (isOrigin) {
+                XYZ newEndPoint = origin + directionAfterRotate * length;
+                nLine = Line.CreateBound(origin, newEndPoint);
+            }
+            else {
+                XYZ newOrigin = endPoint + directionAfterRotate * length;
+
+                nLine = Line.CreateBound(newOrigin, endPoint);
+            }
 
             using (Transaction t = new Transaction(_document, "chant")) {
                 try {

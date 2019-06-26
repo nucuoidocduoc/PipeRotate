@@ -11,3 +11,12 @@ C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\AcDbMgd.dll
 C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\bin\Debug\AcMgd.dll
 C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\ClassLibrary1.FormInput.resources
 C:\Users\xD\source\repos\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csproj.GenerateResource.cache
+D:\GitHub\PipeRotate\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+D:\GitHub\PipeRotate\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+D:\GitHub\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csprojAssemblyReference.cache
+D:\GitHub\PipeRotate\ClassLibrary1\obj\Debug\ClassLibrary1.FormInput.resources
+D:\GitHub\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csproj.GenerateResource.cache
+D:\GitHub\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csproj.CoreCompileInputs.cache
+D:\GitHub\PipeRotate\ClassLibrary1\obj\Debug\PipeExample.csproj.CopyComplete
+D:\GitHub\PipeRotate\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+D:\GitHub\PipeRotate\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
